@@ -60,7 +60,7 @@ obj/
 # IntelliJ IDEA
 *.iml
 *.iws
-/out/
+
 
 # User-specific configurations
 .idea/caches/
