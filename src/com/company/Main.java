@@ -2,6 +2,10 @@ package com.company;
 
 import java.util.Scanner;
 
+/**
+  Создание пользовательского профайла
+ */
+
 
 public class Main {
 
@@ -25,7 +29,6 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner writeInfo = new Scanner(System.in);
-        int n = 0;
         Main person = new Main();
         System.out.println("Введите логин");
         Main.login = writeInfo.nextLine();
@@ -42,7 +45,6 @@ public class Main {
                 num = writeInfo.nextInt();
                 switch (num) {
                     case 1:
-                        n++;
                         person.createProfile();
                         break;
                     case 2:
