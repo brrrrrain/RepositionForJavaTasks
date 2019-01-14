@@ -179,10 +179,4 @@ public class Profile {
 
         return informationString;
     }
-
-    String loginCheckout(){
-
-        return getLoginForRegistration();
-    }
-
 }

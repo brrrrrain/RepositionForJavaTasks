@@ -31,7 +31,7 @@ public class Main {
                 System.out.println("Введите 1 для создания профайла/" +
                         "2 для проверки пользователя по логину/" +
                         "3 для удаления учетной записи/" +
-                        "0 для выхода из программы/");
+                        "любую другую цифру для выхода из программы/");
                 num = writeInfo.nextInt();
                 writeInfo.nextLine();
                 switch (num) {
@@ -60,10 +60,8 @@ public class Main {
                                     "не существует");
                         }
                         break;
-                    default:
-                        break;
                 }
-            } while (num != 0);
+            } while ((num >= 1) && (num <= 3));
         }
     }
 
