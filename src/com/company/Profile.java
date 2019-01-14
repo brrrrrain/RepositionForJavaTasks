@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Profile {
 
-    public static String loginForRegistration;
+    private String loginForRegistration;
 
     private String name;
     private String surname;
@@ -22,102 +22,167 @@ public class Profile {
     private String shortInfoAboutYou;
     private String avatar;
 
-    Scanner putText = new Scanner(System.in);
 
-
-    void createProfile(){
-        System.out.println("Введите новый логин:");
-        loginForRegistration = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите фамилию:");
-        surname = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите имя:");
-        name = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите отчество:");
-        patronymic = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите электронную почту:");
-        email = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите дату рождения:");
-        dateOfBirth = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите место жительства:");
-        placeOfLiving = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите серию паспорта:");
-        passportSeria = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите номер паспорта:");
-        passportNumber = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Кто выдал паспорт:");
-        whoGavePassport = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите номер телефона:");
-        phoneNumber = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите сайт своего адреса:");
-        siteAdress = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите место работы:");
-        workingPlace = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите должность:");
-        position = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Введите краткую информацию о себе:");
-        shortInfoAboutYou = putText.nextLine();
-        System.out.println();
-
-        System.out.println("Выберите один из предложенных аватаров: 1. /--/, 2. |00|, 3.|--|, 4. |..|");
-        int choose = putText.nextInt();
-        switch (choose){
-            case 1:
-                avatar = "/--/";
-                break;
-            case 2:
-                avatar = "|00|";
-                break;
-            case 3:
-                avatar = "|--|";
-                break;
-            case 4:
-                avatar = "|..|";
-                break;
-        }
+    public String getLoginForRegistration() {
+        return loginForRegistration;
     }
 
-    String toStr(){
-        String informationString = loginForRegistration + " " + name + " " +
-                surname + " " + patronymic + " " + email + " " + dateOfBirth +
-                " " + placeOfLiving + " " + passportSeria + " " +
-                passportNumber + " " + whoGavePassport + " " + phoneNumber +
-                " " + siteAdress + " " + workingPlace + " " + position + " " +
-                shortInfoAboutYou + " " + avatar;
+    public void setLoginForRegistration(String loginForRegistration) {
+        this.loginForRegistration = loginForRegistration;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPlaceOfLiving() {
+        return placeOfLiving;
+    }
+
+    public void setPlaceOfLiving(String placeOfLiving) {
+        this.placeOfLiving = placeOfLiving;
+    }
+
+    public String getPassportSeria() {
+        return passportSeria;
+    }
+
+    public void setPassportSeria(String passportSeria) {
+        this.passportSeria = passportSeria;
+    }
+
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
+    public String getWhoGavePassport() {
+        return whoGavePassport;
+    }
+
+    public void setWhoGavePassport(String whoGavePassport) {
+        this.whoGavePassport = whoGavePassport;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getSiteAdress() {
+        return siteAdress;
+    }
+
+    public void setSiteAdress(String siteAdress) {
+        this.siteAdress = siteAdress;
+    }
+
+    public String getWorkingPlace() {
+        return workingPlace;
+    }
+
+    public void setWorkingPlace(String workingPlace) {
+        this.workingPlace = workingPlace;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getShortInfoAboutYou() {
+        return shortInfoAboutYou;
+    }
+
+    public void setShortInfoAboutYou(String shortInfoAboutYou) {
+        this.shortInfoAboutYou = shortInfoAboutYou;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String toString(){
+        String pageLoginForRegestration = getLoginForRegistration();
+        String pageName = getName();
+        String pageSurname = getSurname();
+        String pagePatronymic = getPatronymic();
+        String pageEmail = getEmail();
+        String pageDateOfBirth = getDateOfBirth();
+        String pagePlaceOfLiving = getPlaceOfLiving();
+        String pagePassportSeria = getPassportSeria();
+        String pagePassportNumber = getPassportNumber();
+        String pageWhoGavePassport = getWhoGavePassport();
+        String pagePhoneNumber = getPhoneNumber();
+        String pageSiteAdress = getSiteAdress();
+        String pageWorkingPlace = getWorkingPlace();
+        String pagePosition = getPosition();
+        String pageShortInfoAboutYou = getShortInfoAboutYou();
+        String pageAvatar = getAvatar();
+
+        String informationString = pageLoginForRegestration + " " + pageName +
+                " " + pageSurname + " " + pagePatronymic + " " + pageEmail +
+                " " + pageDateOfBirth + " " + pagePlaceOfLiving + " " +
+                pagePassportSeria + " " + pagePassportNumber + " " +
+                pageWhoGavePassport + " " + pagePhoneNumber + " " +
+                pageSiteAdress + " " + pageWorkingPlace + " " + pagePosition +
+                " " + pageShortInfoAboutYou + " " + pageAvatar;
 
         return informationString;
     }
 
     String loginCheckout(){
 
-        return loginForRegistration;
+        return getLoginForRegistration();
     }
 
 }
