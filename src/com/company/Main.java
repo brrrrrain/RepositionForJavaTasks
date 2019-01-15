@@ -11,19 +11,14 @@ import java.util.Scanner;
 
 public class Main {
     public static String login;
-    static Profile person = new Profile();
-    static Scanner writeInfo = new Scanner(System.in);
-    /*
-     Оставил статик у Profile и Scanner, так как придобавлении в main
-     перестают вызываться методы, используемые вне main
-     */
-
 
     public static void main(String[] args) {
         System.out.println("Введите логин");
+        Scanner writeInfo = new Scanner(System.in);
+        Profile person = new Profile();
         Main.login = writeInfo.nextLine();
-        if (login.equals(loginCheckout())) {
-            showProfile();
+        if (login.equals(loginCheckout(person))) {
+            showProfile(person);
         } else {
             int num;
             System.out.println("Такого логина не существует");
@@ -36,13 +31,13 @@ public class Main {
                 writeInfo.nextLine();
                 switch (num) {
                     case 1:
-                        createProfile();
+                        createProfile(person, writeInfo);
                         break;
                     case 2:
                         System.out.println("Введите логин");
                         String check = writeInfo.nextLine();
-                        if (check.equals(loginCheckout())) {
-                            showProfile();
+                        if (check.equals(loginCheckout(person))) {
+                            showProfile(person);
                         }
                         else {
                             System.out.println("Такого логина не существует");
@@ -52,7 +47,7 @@ public class Main {
                     case 3:
                         System.out.println("Введите логин удаляемого профиля");
                         String deleteLogin = writeInfo.nextLine();
-                        if (deleteLogin.equals(loginCheckout())) {
+                        if (deleteLogin.equals(loginCheckout(person))) {
                             person = null;
                             System.out.println("Удаление завершено");
                         } else {
@@ -65,109 +60,109 @@ public class Main {
         }
     }
 
-    static void createProfile(){
+    static void createProfile(Profile personality, Scanner writeInfoCreation){
         System.out.println("Введите новый логин:");
-        String profileLogin = writeInfo.nextLine();
-        person.setLoginForRegistration(profileLogin);
+        String profileLogin = writeInfoCreation.nextLine();
+        personality.setLoginForRegistration(profileLogin);
         System.out.println();
 
         System.out.println("Введите фамилию:");
-        String profileSurname = writeInfo.nextLine();
-        person.setSurname(profileSurname);
+        String profileSurname = writeInfoCreation.nextLine();
+        personality.setSurname(profileSurname);
         System.out.println();
 
         System.out.println("Введите имя:");
-        String profileName = writeInfo.nextLine();
-        person.setName(profileName);
+        String profileName = writeInfoCreation.nextLine();
+        personality.setName(profileName);
         System.out.println();
 
         System.out.println("Введите отчество:");
-        String profilePatronymic = writeInfo.nextLine();
-        person.setPatronymic(profilePatronymic);
+        String profilePatronymic = writeInfoCreation.nextLine();
+        personality.setPatronymic(profilePatronymic);
         System.out.println();
 
         System.out.println("Введите электронную почту:");
-        String profileEmail = writeInfo.nextLine();
-        person.setEmail(profileEmail);
+        String profileEmail = writeInfoCreation.nextLine();
+        personality.setEmail(profileEmail);
         System.out.println();
 
         System.out.println("Введите дату рождения:");
-        String profileDateOfBirth = writeInfo.nextLine();
-        person.setDateOfBirth(profileDateOfBirth);
+        String profileDateOfBirth = writeInfoCreation.nextLine();
+        personality.setDateOfBirth(profileDateOfBirth);
         System.out.println();
 
         System.out.println("Введите место жительства:");
-        String profilePlaceOfLiving = writeInfo.nextLine();
-        person.setPlaceOfLiving(profilePlaceOfLiving);
+        String profilePlaceOfLiving = writeInfoCreation.nextLine();
+        personality.setPlaceOfLiving(profilePlaceOfLiving);
         System.out.println();
 
         System.out.println("Введите серию паспорта:");
-        String profilePassportSeria = writeInfo.nextLine();
-        person.setPassportSeria(profilePassportSeria);
+        String profilePassportSeria = writeInfoCreation.nextLine();
+        personality.setPassportSeria(profilePassportSeria);
         System.out.println();
 
         System.out.println("Введите номер паспорта:");
-        String profilePassportNumber = writeInfo.nextLine();
-        person.setPassportNumber(profilePassportNumber);
+        String profilePassportNumber = writeInfoCreation.nextLine();
+        personality.setPassportNumber(profilePassportNumber);
         System.out.println();
 
         System.out.println("Кто выдал паспорт:");
-        String profileWhoGavePassport = writeInfo.nextLine();
-        person.setWhoGavePassport(profileWhoGavePassport);
+        String profileWhoGavePassport = writeInfoCreation.nextLine();
+        personality.setWhoGavePassport(profileWhoGavePassport);
         System.out.println();
 
         System.out.println("Введите номер телефона:");
-        String profilePhoneNumber = writeInfo.nextLine();
-        person.setPhoneNumber(profilePhoneNumber);
+        String profilePhoneNumber = writeInfoCreation.nextLine();
+        personality.setPhoneNumber(profilePhoneNumber);
         System.out.println();
 
         System.out.println("Введите сайт своего адреса:");
-        String profileSiteAdress = writeInfo.nextLine();
-        person.setSiteAdress(profileSiteAdress);
+        String profileSiteAdress = writeInfoCreation.nextLine();
+        personality.setSiteAdress(profileSiteAdress);
         System.out.println();
 
         System.out.println("Введите место работы:");
-        String profileWorkingPlace = writeInfo.nextLine();
-        person.setWorkingPlace(profileWorkingPlace);
+        String profileWorkingPlace = writeInfoCreation.nextLine();
+        personality.setWorkingPlace(profileWorkingPlace);
         System.out.println();
 
         System.out.println("Введите должность:");
-        String profilePosition = writeInfo.nextLine();
-        person.setPosition(profilePosition);
+        String profilePosition = writeInfoCreation.nextLine();
+        personality.setPosition(profilePosition);
         System.out.println();
 
         System.out.println("Введите краткую информацию о себе:");
-        String profileShortInfoAboutYou = writeInfo.nextLine();
-        person.setShortInfoAboutYou(profileShortInfoAboutYou);
+        String profileShortInfoAboutYou = writeInfoCreation.nextLine();
+        personality.setShortInfoAboutYou(profileShortInfoAboutYou);
         System.out.println();
 
         System.out.println("Выберите один из предложенных аватаров: 1. /--/, 2. |00|, 3.|--|, 4. |..|");
-        int choose = writeInfo.nextInt();
-        writeInfo.nextLine();
+        int choose = writeInfoCreation.nextInt();
+        writeInfoCreation.nextLine();
         switch (choose){
             case 1:
-                person.setAvatar("/--/");
+                personality.setAvatar("/--/");
                 break;
             case 2:
-                person.setAvatar("|00|");
+                personality.setAvatar("|00|");
                 break;
             case 3:
-                person.setAvatar("|--|");
+                personality.setAvatar("|--|");
                 break;
             case 4:
-                person.setAvatar("|..|");
+                personality.setAvatar("|..|");
                 break;
         }
     }
 
-    static void showProfile(){
+    static void showProfile(Profile personality){
 
-        System.out.println(person.toString());
+        System.out.println(personality.toString());
     }
 
-    static String loginCheckout(){
+    static String loginCheckout(Profile personality){
 
-        return person.getLoginForRegistration();
+        return personality.getLoginForRegistration();
     }
 }
 

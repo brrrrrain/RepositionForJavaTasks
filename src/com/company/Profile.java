@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Profile {
 
     private String loginForRegistration;
-
     private String name;
     private String surname;
     private String patronymic;
@@ -24,6 +23,7 @@ public class Profile {
 
 
     public String getLoginForRegistration() {
+
         return loginForRegistration;
     }
 
@@ -32,6 +32,7 @@ public class Profile {
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -40,6 +41,7 @@ public class Profile {
     }
 
     public String getSurname() {
+
         return surname;
     }
 
@@ -48,6 +50,7 @@ public class Profile {
     }
 
     public String getPatronymic() {
+
         return patronymic;
     }
 
@@ -56,6 +59,7 @@ public class Profile {
     }
 
     public String getEmail() {
+
         return email;
     }
 
@@ -64,6 +68,7 @@ public class Profile {
     }
 
     public String getDateOfBirth() {
+
         return dateOfBirth;
     }
 
@@ -72,6 +77,7 @@ public class Profile {
     }
 
     public String getPlaceOfLiving() {
+
         return placeOfLiving;
     }
 
@@ -80,6 +86,7 @@ public class Profile {
     }
 
     public String getPassportSeria() {
+
         return passportSeria;
     }
 
@@ -88,6 +95,7 @@ public class Profile {
     }
 
     public String getPassportNumber() {
+
         return passportNumber;
     }
 
@@ -96,6 +104,7 @@ public class Profile {
     }
 
     public String getWhoGavePassport() {
+
         return whoGavePassport;
     }
 
@@ -104,6 +113,7 @@ public class Profile {
     }
 
     public String getPhoneNumber() {
+
         return phoneNumber;
     }
 
@@ -112,6 +122,7 @@ public class Profile {
     }
 
     public String getSiteAdress() {
+
         return siteAdress;
     }
 
@@ -128,6 +139,7 @@ public class Profile {
     }
 
     public String getPosition() {
+
         return position;
     }
 
@@ -136,6 +148,7 @@ public class Profile {
     }
 
     public String getShortInfoAboutYou() {
+
         return shortInfoAboutYou;
     }
 
@@ -144,6 +157,7 @@ public class Profile {
     }
 
     public String getAvatar() {
+
         return avatar;
     }
 
@@ -152,30 +166,12 @@ public class Profile {
     }
 
     public String toString(){
-        String pageLoginForRegestration = getLoginForRegistration();
-        String pageName = getName();
-        String pageSurname = getSurname();
-        String pagePatronymic = getPatronymic();
-        String pageEmail = getEmail();
-        String pageDateOfBirth = getDateOfBirth();
-        String pagePlaceOfLiving = getPlaceOfLiving();
-        String pagePassportSeria = getPassportSeria();
-        String pagePassportNumber = getPassportNumber();
-        String pageWhoGavePassport = getWhoGavePassport();
-        String pagePhoneNumber = getPhoneNumber();
-        String pageSiteAdress = getSiteAdress();
-        String pageWorkingPlace = getWorkingPlace();
-        String pagePosition = getPosition();
-        String pageShortInfoAboutYou = getShortInfoAboutYou();
-        String pageAvatar = getAvatar();
-
-        String informationString = pageLoginForRegestration + " " + pageName +
-                " " + pageSurname + " " + pagePatronymic + " " + pageEmail +
-                " " + pageDateOfBirth + " " + pagePlaceOfLiving + " " +
-                pagePassportSeria + " " + pagePassportNumber + " " +
-                pageWhoGavePassport + " " + pagePhoneNumber + " " +
-                pageSiteAdress + " " + pageWorkingPlace + " " + pagePosition +
-                " " + pageShortInfoAboutYou + " " + pageAvatar;
+       String informationString = loginForRegistration + " " + name + " " +
+               surname + " " + patronymic + " " + email + " " + dateOfBirth + " "
+               + placeOfLiving + " " + passportSeria + " " + passportNumber + " "
+               + whoGavePassport + " " + phoneNumber + " " + siteAdress + " " +
+               workingPlace + " " + position + " " + shortInfoAboutYou + " " +
+               avatar;
 
         return informationString;
     }
