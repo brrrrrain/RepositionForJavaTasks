@@ -10,13 +10,12 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static String login;
 
     public static void main(String[] args) {
         System.out.println("Введите логин");
         Scanner writeInfo = new Scanner(System.in);
         Profile person = new Profile();
-        Main.login = writeInfo.nextLine();
+        String login = writeInfo.nextLine();
         if (login.equals(loginCheckout(person))) {
             showProfile(person);
         } else {

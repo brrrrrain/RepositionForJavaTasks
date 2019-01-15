@@ -166,13 +166,11 @@ public class Profile {
     }
 
     public String toString(){
-       String informationString = loginForRegistration + " " + name + " " +
+       return  loginForRegistration + " " + name + " " +
                surname + " " + patronymic + " " + email + " " + dateOfBirth + " "
                + placeOfLiving + " " + passportSeria + " " + passportNumber + " "
                + whoGavePassport + " " + phoneNumber + " " + siteAdress + " " +
                workingPlace + " " + position + " " + shortInfoAboutYou + " " +
                avatar;
-
-        return informationString;
     }
 }
