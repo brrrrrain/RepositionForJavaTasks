@@ -18,47 +18,53 @@ public class Main {
                 " by James Gosling at Sun Microsystems (which has since been acquired" +
                 " by Oracle Corporation) and released in 1995 as a core component" +
                 " of Sun Microsystems' Java platform";
-        String[] words = java.split(" ");
-        StringBuffer javaBuffer = new StringBuffer();
-        for (int i = 0; i < words.length; i++){
-            javaBuffer.append(words[i] + " ");
-            if (i == 123){
-                int temp = javaBuffer.length();
-                for (int count = 0; count < 32 - temp; count++){
-                    javaBuffer.insert(24, " ");
+        StringBuffer javaBuffer = new StringBuffer(java);
+        SquareText(45,javaBuffer);
+    }
+
+    static void SquareText(int size, StringBuffer str){
+        StringBuffer result = new StringBuffer();
+        int counter = 0;
+        String line;
+        for (int i = 0; i < str.length(); i++){
+            counter++;
+            if (counter == size){
+                line = str.substring(0,counter+1);
+                if ((Character.isLetter(line.charAt(counter-1)))
+                        && (Character.isLetter(line.charAt(counter)))){
+                    int firstSpace = line.indexOf(" ");
+                    int lastSpace = line.lastIndexOf(" ");
+                    str.deleteCharAt(lastSpace);
+                    int differ = counter - lastSpace;
+                    for (int j = 0; j < differ; j++){
+                        str.insert(firstSpace," ");
+                    }
+                    for (int j = 0; j < size; j++){
+                        System.out.print(str.charAt(j));
+                    }
+                    str.delete(0,counter);
+                    System.out.println();
                 }
-            }
-            if (i == 125){
-                int temp = javaBuffer.length();
-                for (int count = 0; count < 32 - temp; count++){
-                    javaBuffer.insert(javaBuffer.indexOf(" "), " ");
+                if ((Character.isLetter(line.charAt(counter-1)))
+                        && (Character.isWhitespace(line.charAt(counter)))){
+                    str.deleteCharAt(counter);
+                    for (int j = 0; j < size; j++){
+                        System.out.print(str.charAt(j));
+                    }
+                    str.delete(0,counter);
+                    System.out.println();
                 }
-            }
-            if (i == 127){
-                int temp = javaBuffer.length();
-                for (int count = 0; count < 32 - temp; count++){
-                    javaBuffer.insert(javaBuffer.indexOf(" "), " ");
+                if (Character.isWhitespace(line.charAt(counter-1))){
+                    int firstSpace = line.indexOf(" ");
+                    str.deleteCharAt(counter-1);
+                    str.insert(firstSpace, " ");
+                    for (int j = 0; j < size; j++){
+                        System.out.print(str.charAt(j));
+                    }
+                    str.delete(0,counter);
+                    System.out.println();
                 }
-            }
-            if (i == words.length - 1){
-                javaBuffer.append(words[words.length - 1] + " ");
-            }
-            if (javaBuffer.length() > 32){
-                javaBuffer.deleteCharAt(javaBuffer.length() - 1);
-                int lastSpace = javaBuffer.lastIndexOf(" ");
-                String lastWord = " ";
-                for (int k = lastSpace; k < javaBuffer.length(); k++){
-                    lastWord += javaBuffer.charAt(k);
-                }
-                javaBuffer.delete(lastSpace, javaBuffer.length());
-                int x = javaBuffer.length();
-                for (int j = 0; j < 32 - x; j++){
-                    javaBuffer.insert(javaBuffer.lastIndexOf(" "), " ");
-                }
-                System.out.println(javaBuffer);
-                javaBuffer.delete(0, javaBuffer.length());
-                javaBuffer.append(lastWord + ' ');
-                javaBuffer.delete(0,2);
+                counter = 0;
             }
         }
     }
