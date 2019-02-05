@@ -23,7 +23,6 @@ public class Main {
     }
 
     static void SquareText(int size, StringBuffer str){
-        StringBuffer result = new StringBuffer();
         int counter;
         String line;
         for (int i = 0; i < str.length(); i++){
