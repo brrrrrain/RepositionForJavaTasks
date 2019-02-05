@@ -19,19 +19,31 @@ public class Main {
                 " by Oracle Corporation) and released in 1995 as a core component" +
                 " of Sun Microsystems' Java platform";
         StringBuffer javaBuffer = new StringBuffer(java);
-        SquareText(45,javaBuffer);
+        SquareText(80,javaBuffer);
     }
 
     static void SquareText(int size, StringBuffer str){
         StringBuffer result = new StringBuffer();
-        int counter = 0;
+        int counter;
         String line;
         for (int i = 0; i < str.length(); i++){
-            counter++;
-            if (counter == size){
-                line = str.substring(0,counter+1);
-                if ((Character.isLetter(line.charAt(counter-1)))
-                        && (Character.isLetter(line.charAt(counter)))){
+            counter = size;
+            if (str.length() < size){
+                line = str.substring(0, str.length());
+                int firstSpace = line.indexOf(" ");
+                int differ = size - str.length();
+                for (int j = 0; j < differ; j++){
+                    str.insert(firstSpace, " ");
+                }
+                line = str.substring(0, size);
+                str.delete(0, counter);
+                System.out.println(line);
+                break;
+            }
+            line = str.substring(0, counter+1);
+            if (line.length() - 1 == size){
+                if ((!Character.isWhitespace(line.charAt(counter-1)))
+                        && (!Character.isWhitespace(line.charAt(counter)))){
                     int firstSpace = line.indexOf(" ");
                     int lastSpace = line.lastIndexOf(" ");
                     str.deleteCharAt(lastSpace);
@@ -39,33 +51,26 @@ public class Main {
                     for (int j = 0; j < differ; j++){
                         str.insert(firstSpace," ");
                     }
-                    for (int j = 0; j < size; j++){
-                        System.out.print(str.charAt(j));
-                    }
+                    System.out.println(str.substring(0,size));
                     str.delete(0,counter);
-                    System.out.println();
                 }
-                if ((Character.isLetter(line.charAt(counter-1)))
+                if ((!Character.isWhitespace(line.charAt(counter-1)))
                         && (Character.isWhitespace(line.charAt(counter)))){
                     str.deleteCharAt(counter);
-                    for (int j = 0; j < size; j++){
-                        System.out.print(str.charAt(j));
-                    }
+                    System.out.println(str.substring(0,size));
                     str.delete(0,counter);
-                    System.out.println();
                 }
                 if (Character.isWhitespace(line.charAt(counter-1))){
                     int firstSpace = line.indexOf(" ");
                     str.deleteCharAt(counter-1);
                     str.insert(firstSpace, " ");
-                    for (int j = 0; j < size; j++){
-                        System.out.print(str.charAt(j));
-                    }
+                    System.out.println(str.substring(0,size));
                     str.delete(0,counter);
-                    System.out.println();
                 }
-                counter = 0;
+                i = 0;
             }
         }
     }
+
+
 }
